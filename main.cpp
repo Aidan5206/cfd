@@ -11,7 +11,9 @@ using namespace std;
 
 int main() {
     Grid CylGrid{82, 42, 2, 1};
-    CylGrid.Initialize();
-    // CylGrid.printGrid();
-    CylGrid.displayGrid();
+    CylGrid.InitializeBoundaries();
+    CylGrid.RunAlgebraicMethod();
+    //CylGrid.printGrid();
+    CylGrid.RunGaussSeidelDiffMethod();
+    //CylGrid.displayGrid();
 }

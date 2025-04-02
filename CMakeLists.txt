@@ -3,6 +3,7 @@ project(cfd)
 
 set(CMAKE_CUDA_STANDARD 20)
 set(CMAKE_TOOLCHAIN_FILE "/Users/aidanhsu/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+set(CMAKE_OSX_ARCHITECTURES "arm64")
 
 add_executable(cfd main.cpp
         main.h
@@ -12,4 +13,4 @@ add_executable(cfd main.cpp
         functions.h)
 
 find_package(Matplot++ CONFIG REQUIRED)
-target_link_libraries(cfd PRIVATE Matplot++::cimg  Matplot++::matplot)
+target_link_libraries(cfd PRIVATE Matplot++::cimg  Matplot++::matplot eigen3)

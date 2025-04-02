@@ -4,27 +4,30 @@
 
 #ifndef GRID_H
 #define GRID_H
+#include "functions.h"
+#include <vector>
+
+using namespace std;
 
 class Grid {
     // This class creates a new grid object
     public:
-        int m_IL {};
-        int m_JL {};
+        int m_IL {};    // Rows
+        int m_JL {};    //   Columns
         double m_domain_H {};   // Domain height
         double m_domain_L {};   // Domain length
         double m_cyl_radius {};
         double m_dx {};
         double m_dy {};
-        double **m_x_grid;  // Pointer-to-pointer for [i][j] indexing
-        double *m_x_data;   // Contiguous 1D block of memory
-        double **m_y_grid;
-        double *m_y_data;
 
+        GridData m_x_grid;
+        GridData m_y_grid;
 
         explicit Grid(int IL = 42, int JL = 22, double H = 2, double L = 1, double r = 0.5);
-        ~Grid();
 
-        void Initialize();
+        void InitializeBoundaries();
+        void RunAlgebraicMethod();
+        void RunGaussSeidelDiffMethod();
         void printGrid() const;
         void displayGrid() const;
 
